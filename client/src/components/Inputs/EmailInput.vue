@@ -1,6 +1,6 @@
 <template>
     <FloatLabel>
-        <InputText id="username" v-model="internalValue" class="w-[260px]" :invalid="invalid"></InputText>
+        <InputText id="username" v-model="internalValue" class="w-[260px]" />
         <label for="username">{{ placeholder }}</label>
     </FloatLabel>
 </template>
@@ -16,9 +16,6 @@ export default {
         placeholder: {
             required: true,
             type: String
-        },
-        invalid: {
-            type: Boolean
         }
     },
     components: { FloatLabel, InputText },

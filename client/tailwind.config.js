@@ -1,9 +1,13 @@
 import withMT from "@material-tailwind/html/utils/withMT";
  
 module.exports = withMT({
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jetbrains: ['"JetBrains Mono"', 'monospace'],
+      },
+    },
   },
   plugins: [],
 });

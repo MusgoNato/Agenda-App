@@ -9,6 +9,10 @@ import Aura from '@primevue/themes/aura';
 import router from "./assets/router/router"
 const pinia = createPinia();
 const app = createApp(App);
+import 'primeicons/primeicons.css'
+import ToastService from 'primevue/toastservice';
+import Toast from 'primevue/toast';
+
 
 app.use(pinia);
 app.use(PrimeVue, {
@@ -21,6 +25,8 @@ app.use(PrimeVue, {
         }
     }
 });
+app.use(ToastService);
 app.use(router);
+app.component('Toast', Toast);
 app.component('VueDatePicker', VueDatePicker);
 app.mount('#app');
