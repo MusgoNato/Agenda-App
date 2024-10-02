@@ -1,12 +1,4 @@
 <template>
-    <ToastVue 
-        :key="toastKey"
-        :message="toastMessage" 
-        :position="toastPosition" 
-        :severity="toastSeverity" 
-        :activate="toastActive" 
-    />
-
     <div class="flex flex-col gap-2 p-4 text-center border border-black rounded-xl px-6 py-12">
         <h1 class="font-jetbrains font-bold text-4xl mb-4">Login</h1>
         <div class="flex flex-col gap-6">
@@ -17,57 +9,52 @@
             </div>
         </div>
         <Button label="Acessar" severity="contrast" icon="pi pi-user" :loading="loading" @click="submit" />
-        <p class="text-[11px] cursor-pointer">Fazer Cadastro</p>
+        <p class="text-[11px] cursor-pointer">Criar Conta</p>
     </div>
 </template>
 
 <script>
 import TextInput from '../Inputs/TextInput.vue';
 import PasswordInput from '../Inputs/PasswordInput.vue';
-import ToastVue from '../Toast/ToastVue.vue';
 import Button from 'primevue/button';
 import createAxiosInstance from "../../assets/services/http";
+import { inject } from 'vue';
 
 const http = createAxiosInstance();
 
 export default {
-    components: { TextInput, PasswordInput, Button, ToastVue },
+    components: { TextInput, PasswordInput, Button  },
+    setup(){
+        const toast = inject('toast');
+        return{
+            toast
+        };
+    },
     data() {
         return {
             password: "",
             email: "",
             loading: false,
             invalid: false,
-            toastMessage: '',
-            toastPosition: 'top-right',
-            toastSeverity: 'error',
-            toastActive: false,
-            toastKey: 0, // Adicione um contador para o key
         }
     },
     methods: {
-        showToast(message, severity) {
-            this.toastMessage = message;
-            this.toastSeverity = severity;
-            this.toastActive = true;
-            this.toastKey += 1; 
-        },
         async submit() {
             if (this.isValidEmail(this.email)) {
                 this.loading = true;
                 try {
                     const data = await http.post('/auth/login', this.formatarDados());
                     console.log(data);
-                    this.showToast('Login bem-sucedido!', 'success'); // Toast de sucesso
+                    this.toast.showToast('Login bem-sucedido!', 'success')
                 } catch (error) {
                     console.error(error);
-                    this.showToast('Erro ao realizar login. Tente novamente.', 'error'); // Toast de erro
+                    this.toast.showToast('Erro ao realizar login. Tente novamente.', 'error');
                 } finally {
                     this.loading = false;
                 }
             } else {
                 this.invalid = true;
-                this.showToast('Email inválido. Por favor, insira um email válido.', 'eror'); // Toast de aviso
+                this.toast.showToast('Email inválido. Por favor, insira um email válido.', 'eror');
             }
         },
         formatarDados() {
