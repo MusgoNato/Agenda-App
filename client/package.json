@@ -15,6 +15,7 @@
     "pinia": "^2.2.3",
     "primeicons": "^7.0.0",
     "primevue": "^4.0.7",
+    "pusher-js": "^8.4.0-rc2",
     "vue": "^3.4.37",
     "vue-router": "^4.4.5"
   },
