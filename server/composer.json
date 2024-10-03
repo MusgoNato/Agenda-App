@@ -11,6 +11,8 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "phpmailer/phpmailer": "^6.9",
+        "symfony/http-client": "^7.1",
+        "symfony/mailgun-mailer": "^7.1",
         "tymon/jwt-auth": "^2.1"
     },
     "require-dev": {
