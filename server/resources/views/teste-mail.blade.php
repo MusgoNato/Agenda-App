@@ -4,8 +4,8 @@
     <title>Laravel Mail</title>
 </head>
 <body>
-    <h1>{{ $data['title'] }}</h1>
-    <p>{{ $data['body'] }}</p>
-    <p>Muito Obrigado.</p>
+    <h1>{{ $details['title'] }}</h1>
+    <bold>{{ $details['body'] }}</bold>
+    <p>AHHHHHH ZÉ DA MANGAAAA!</p>
 </body>
 </html>

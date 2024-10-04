@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\View\ViewName;
 use Tymon\JWTAuth\Providers\Auth\Illuminate;
 use Illuminate\Mail\Mailables\Address;
 
@@ -15,16 +16,25 @@ class TesteMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
-
+    public $details;
+    public $viewname;
     /**
      * Create a new message instance.
      */
-    public function __construct($data)
+    public function __construct($viewname, $details)
     {
-        //
-        $this->data = $data;
+        // 
+        $this->details = $details;
+        $this->viewname = $viewname;
     }
+
+    public function build()
+    {
+        return $this->subject($this->details['title'])
+                    ->view($this->viewname) // Usa a view Blade
+                    ->with('title', $this->details['title'])
+                    ->with('body', $this->details['body']);
+    }   
 
     /**
      * Get the message envelope.

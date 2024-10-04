@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,6 @@ Route::group([
 });
 
 Route::post('/user',[UserController::class,'store']);
+
+/*Rota para envio do email*/
+Route::get('send-email', [MailController::class, 'index']);
