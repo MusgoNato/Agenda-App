@@ -17,19 +17,20 @@
 import TextInput from '../Inputs/TextInput.vue';
 import PasswordInput from '../Inputs/PasswordInput.vue';
 import Button from 'primevue/button';
-import createAxiosInstance from "../../assets/services/http";
+import createAxiosInstance from "../../services/http";
 import { inject } from 'vue';
 
 const http = createAxiosInstance();
 
 export default {
-    components: { TextInput, PasswordInput, Button  },
-    setup(){
+    components: { TextInput, PasswordInput, Button },
+    setup() {
         const toast = inject('toast');
-        return{
+        return {
             toast
         };
     },
+
     data() {
         return {
             password: "",

@@ -6,7 +6,7 @@ import '@vuepic/vue-datepicker/dist/main.css'
 import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
-import router from "./assets/router/router"
+import router from "./router/router"
 const pinia = createPinia();
 const app = createApp(App);
 import 'primeicons/primeicons.css'
