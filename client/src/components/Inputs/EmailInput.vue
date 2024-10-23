@@ -1,8 +1,5 @@
 <template>
-    <FloatLabel>
         <InputText id="username" v-model="internalValue" class="w-[260px]" />
-        <label for="username">{{ placeholder }}</label>
-    </FloatLabel>
 </template>
 <script>
 import FloatLabel from 'primevue/floatlabel';

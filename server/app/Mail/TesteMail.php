@@ -9,7 +9,6 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\View\ViewName;
-use Tymon\JWTAuth\Providers\Auth\Illuminate;
 use Illuminate\Mail\Mailables\Address;
 
 class TesteMail extends Mailable
@@ -30,10 +29,10 @@ class TesteMail extends Mailable
 
     public function build()
     {
-        return $this->subject($this->details['title'])
+        return $this->subject($this->details['name'])
                     ->view($this->viewname) // Usa a view Blade
-                    ->with('title', $this->details['title'])
-                    ->with('body', $this->details['body']);
+                    ->with('name', $this->details['name'])
+                    ->with('codigo', $this->details['codigo']);
     }   
 
     /**
@@ -42,8 +41,8 @@ class TesteMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Teste Mail',
-            from: new Address('test@mail.dev', 'Test Mail')
+            subject: 'Acesso quase pronto',
+            from: new Address('test@mail.dev', 'AgendaApp')
         );
     }
 

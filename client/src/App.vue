@@ -1,5 +1,6 @@
 <template>
-    <RouterView />
+    <NavBar/>
+    <RouterView class="bg-gray-100"/>
     <ToastVue 
         :key="toastKey"
         :message="toastMessage" 
@@ -10,11 +11,14 @@
 </template>
 
 <script>
+
+import NavBar from './components/Navbar/NavBar.vue';
 import ToastVue from './components/Toast/ToastVue.vue';
 import { ref, provide } from 'vue';
+
 export default {
     components: {
-        ToastVue,
+        ToastVue,NavBar
     },
     setup() {
         const toastKey = ref(0);

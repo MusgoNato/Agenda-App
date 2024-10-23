@@ -34,6 +34,5 @@ Route::group([
 });
 
 Route::post('/user',[UserController::class,'store']);
-
-/*Rota para envio do email*/
-Route::get('send-email', [MailController::class, 'index']);
+route::post('/authenticated-user', [UserController::class, 'authenticated']);
+Route::post('/send-email', [MailController::class, 'index']);

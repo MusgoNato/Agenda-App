@@ -1,8 +1,8 @@
 <template>
-    <FloatLabel>
-        <InputText id="username" v-model="internalValue" class="w-[260px]" :invalid="invalid"></InputText>
-        <label for="username">{{ placeholder }}</label>
-    </FloatLabel>
+    <div class="flex flex-col gap-1 text-left text-sm">
+        <label>{{ placeholder }}</label>
+        <InputText v-model="internalValue" class="w-[260px] p-inputtext"></InputText>
+    </div>
 </template>
 <script>
 import FloatLabel from 'primevue/floatlabel';
@@ -10,15 +10,12 @@ import InputText from 'primevue/inputtext';
 export default {
     props: {
         modelValue: {
-            type: [String,null],
+            type: [String, null],
             required: true
         },
         placeholder: {
             required: true,
             type: String
-        },
-        invalid: {
-            type: Boolean
         }
     },
     components: { FloatLabel, InputText },

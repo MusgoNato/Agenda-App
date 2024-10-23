@@ -16,8 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('status');
             $table->rememberToken();
-            $table->timestamps();
+            $table->timestamps(); 
+            $table->timestamp('deleted_at')->nullable();
+            $table->timestamp('authenticated_at')->nullable();
         });
     }
 
