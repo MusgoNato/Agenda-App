@@ -14,9 +14,27 @@
 <script>
 import TextInput from '../Inputs/TextInput.vue';
 import PasswordInput from '../Inputs/PasswordInput.vue';
+<<<<<<< HEAD
 
 export default {
     components: { TextInput, PasswordInput },
+=======
+import Button from 'primevue/button';
+import createAxiosInstance from "../../services/http";
+import { inject } from 'vue';
+
+const http = createAxiosInstance();
+
+export default {
+    components: { TextInput, PasswordInput, Button },
+    setup() {
+        const toast = inject('toast');
+        return {
+            toast
+        };
+    },
+
+>>>>>>> 96bdb12c2a00dcc554aecf5aad75680851709977
     data() {
         return {
             password: "kelvin10",

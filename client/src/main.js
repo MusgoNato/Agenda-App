@@ -7,7 +7,12 @@ import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
 import router from "./router/router"
+<<<<<<< HEAD
 
+=======
+const pinia = createPinia();
+const app = createApp(App);
+>>>>>>> 96bdb12c2a00dcc554aecf5aad75680851709977
 import 'primeicons/primeicons.css'
 import ToastService from 'primevue/toastservice';
 import Toast from 'primevue/toast';
